@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Heating and Air Experts | HVAC Services – Bay Area, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f9f6f2;
+    color: #1a1a2e;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── CSS VARIABLES ── */
+  :root {
+    --navy: #0d1b35;
+    --navy-mid: #162443;
+    --navy-light: #1e3560;
+    --orange: #e8621a;
+    --orange-light: #f07a38;
+    --gold: #f5b942;
+    --cream: #fdf8f3;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f3ede6;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 4px 32px rgba(13,27,53,0.13);
+    --shadow-strong: 0 8px 48px rgba(13,27,53,0.22);
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.82rem;
+    font-weight: 400;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .top-bar-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .top-bar-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .top-bar-item { display: flex; align-items: center; gap: 6px; }
+  .top-bar-item svg { flex-shrink: 0; opacity: 0.7; }
+  .top-bar-item a { color: inherit; transition: color .2s; }
+  .top-bar-item a:hover { color: var(--gold); }
+  .top-bar-pill {
+    background: var(--orange);
+    color: #fff; font-weight: 600;
+    padding: 5px 16px; border-radius: 20px;
+    font-size: 0.78rem; letter-spacing: .3px;
+    transition: background .2s;
+  }
+  .top-bar-pill:hover { background: var(--orange-light); }
+
+  /* ── STICKY HEADER ── */
+  .header {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--white);
+    box-shadow: none;
+    transition: box-shadow .3s;
+  }
+  .header.scrolled { box-shadow: 0 2px 24px rgba(13,27,53,0.12); }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .logo img { height: 52px; width: auto; }
+  nav { display: flex; align-items: center; gap: 4px; }
+  nav a {
+    color: var(--navy); font-size: 0.9rem; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px;
+    transition: background .2s, color .2s;
+  }
+  nav a:hover { background: var(--light-gray); color: var(--orange); }
+  .header-cta {
+    background: var(--orange); color: #fff !important;
+    padding: 10px 22px !important; border-radius: 8px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 12px rgba(232,98,26,.3);
+    transition: background .2s, box-shadow .2s !important;
+  }
+  .header-cta:hover { background: var(--orange-light) !important; box-shadow: 0 4px 20px rgba(232,98,26,.4) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+  .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .3s; }
+  .mobile-nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--white); box-shadow: 0 8px 32px rgba(13,27,53,.14);
+    padding: 16px 24px 24px; flex-direction: column; gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-size: 1rem; font-weight: 500; padding: 12px; color: var(--navy); border-radius: 8px; }
+  .mobile-nav a:hover { background: var(--light-gray); color: var(--orange); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative; overflow: hidden;
+    min-height: 680px;
+    display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,53,96,.7) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(232,98,26,.15) 0%, transparent 60%),
+      linear-gradient(135deg, #0a1628 0%, #162443 50%, #0d1b35 100%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; opacity: .06;
+    background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 24px;
+    display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,185,66,.12); border: 1px solid rgba(245,185,66,.3);
+    color: var(--gold); font-size: .8rem; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 800; line-height: 1.1;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--orange-light); }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,.72);
+    line-height: 1.7; max-width: 520px; margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn-primary {
+    background: var(--orange); color: #fff;
+    padding: 14px 28px; border-radius: 8px;
+    font-weight: 600; font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(232,98,26,.4);
+    transition: transform .2s, box-shadow .2s, background .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,98,26,.45); }
+  .btn-secondary {
+    background: rgba(255,255,255,.08); color: #fff;
+    border: 1.5px solid rgba(255,255,255,.25);
+    padding: 14px 28px; border-radius: 8px;
+    font-weight: 500; font-size: 1rem;
+    transition: background .2s, border-color .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.4); }
+  .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+  .hero-trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: .85rem; }
+  .hero-trust-item svg { color: var(--gold); flex-shrink: 0; }
+
+  /* offer card */
+  .offer-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(12px);
+    border-radius: 16px; padding: 32px 28px;
+    color: #fff;
+  }
+  .offer-card-tag {
+    display: inline-block;
+    background: var(--orange); color: #fff;
+    font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .6px;
+    padding: 4px 12px; border-radius: 4px; margin-bottom: 16px;
+  }
+  .offer-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+  .offer-card p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.6; margin-bottom: 20px; }
+  .offer-bullets { list-style: none; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .offer-bullets li { display: flex; align-items: center; gap: 8px; font-size: .88rem; color: rgba(255,255,255,.85); }
+  .offer-bullets li::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: rgba(232,98,26,.25); border: 1.5px solid var(--orange); flex-shrink: 0; position: relative; }
+  .offer-check { width: 18px; height: 18px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .offer-cta {
+    display: block; text-align: center;
+    background: var(--gold); color: var(--navy);
+    padding: 13px; border-radius: 8px;
+    font-weight: 700; font-size: .95rem;
+    transition: filter .2s;
+  }
+  .offer-cta:hover { filter: brightness(1.08); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-label {
+    display: inline-block; text-transform: uppercase;
+    font-size: .75rem; font-weight: 700; letter-spacing: 1.5px;
+    color: var(--orange); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--gray); line-height: 1.7;
+    max-width: 560px; font-weight: 300;
+  }
+  .section-header { margin-bottom: 52px; }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--cream); border-top: 3px solid var(--orange);
+    padding: 40px 0;
+  }
+  .about-strip-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem; font-weight: 800;
+    color: var(--orange); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: .88rem; color: var(--gray); font-weight: 500; }
+
+  /* ── SERVICES ── */
+  .services { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+  }
+  .service-card {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid #ede7de;
+    transition: transform .25s, box-shadow .25s;
+    background: var(--white);
+    display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+  .service-img { height: 200px; overflow: hidden; }
+  .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .service-card:hover .service-img img { transform: scale(1.05); }
+  .service-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .service-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(232,98,26,.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px; color: var(--orange);
+  }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; flex: 1; margin-bottom: 18px; }
+  .service-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--orange); font-weight: 600; font-size: .88rem;
+    transition: gap .2s;
+  }
+  .service-link:hover { gap: 10px; }
+
+  /* ── WHY CHOOSE US ── */
+  .why { background: var(--navy); position: relative; overflow: hidden; }
+  .why::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(232,98,26,.08) 0%, transparent 60%);
+  }
+  .why .section-title { color: var(--white); }
+  .why .section-sub { color: rgba(255,255,255,.6); }
+  .why .section-label { color: var(--gold); }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  .why-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 14px; padding: 32px 28px;
+    transition: background .25s, border-color .25s, transform .25s;
+  }
+  .why-card:hover { background: rgba(255,255,255,.09); border-color: rgba(232,98,26,.35); transform: translateY(-4px); }
+  .why-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: rgba(232,98,26,.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; color: var(--orange-light);
+  }
+  .why-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .why-card p { font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.65; }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--cream); }
+  .stars { display: flex; gap: 3px; color: var(--gold); margin-bottom: 14px; }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 14px; padding: 28px;
+    border: 1px solid #ede7de;
+    box-shadow: 0 2px 16px rgba(13,27,53,.06);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .review-quote { font-size: 2.5rem; color: var(--orange); line-height: 1; margin-bottom: 8px; font-family: Georgia, serif; }
+  .review-text { font-size: .92rem; color: #374151; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--navy-light);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+  }
+  .review-name { font-weight: 600; font-size: .9rem; color: var(--navy); }
+  .review-platform { font-size: .78rem; color: var(--gray); margin-top: 2px; }
+  .reviews-trust-row {
+    display: flex; gap: 20px; justify-content: center; align-items: center;
+    flex-wrap: wrap; margin-top: 52px; padding-top: 40px;
+    border-top: 1px solid #ede7de;
+  }
+  .trust-badge {
+    background: var(--white); border: 1px solid #ede7de;
+    border-radius: 12px; padding: 16px 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    text-align: center; transition: box-shadow .2s;
+    min-width: 130px;
+  }
+  .trust-badge:hover { box-shadow: var(--shadow); }
+  .trust-badge-score { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--navy); }
+  .trust-badge-label { font-size: .75rem; color: var(--gray); font-weight: 500; }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--white); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0; position: relative; }
+  .steps::before {
+    content: '';
+    position: absolute; top: 36px; left: 14%; right: 14%; height: 2px;
+    background: linear-gradient(90deg, var(--orange), var(--gold));
+    z-index: 0;
+  }
+  .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; border: 4px solid var(--white);
+    box-shadow: 0 0 0 3px var(--orange);
+  }
+  .step h4 { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
+  .step p { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--orange) 0%, #c45515 100%);
+    padding: 72px 24px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute; top: -40%; right: -5%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+  .cta-banner::after {
+    content: '';
+    position: absolute; bottom: -30%; left: 5%;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .cta-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+    color: #fff; margin-bottom: 14px; position: relative; z-index: 1;
+  }
+  .cta-banner p { color: rgba(255,255,255,.85); font-size: 1.05rem; margin-bottom: 32px; position: relative; z-index: 1; }
+  .cta-banner-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .btn-white {
+    background: #fff; color: var(--orange);
+    padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    transition: transform .2s, box-shadow .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+  .btn-outline-white {
+    background: transparent; color: #fff;
+    border: 2px solid rgba(255,255,255,.6);
+    padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+    transition: background .2s, border-color .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 52px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-card {
+    background: var(--white);
+    border-radius: 14px; padding: 24px;
+    border: 1px solid #ede7de;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: box-shadow .2s;
+  }
+  .contact-card:hover { box-shadow: var(--shadow); }
+  .contact-card-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: rgba(232,98,26,.1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--orange); flex-shrink: 0;
+  }
+  .contact-card h4 { font-weight: 700; font-size: .9rem; color: var(--navy); margin-bottom: 4px; }
+  .contact-card p, .contact-card a { font-size: .88rem; color: var(--gray); line-height: 1.6; }
+  .contact-card a:hover { color: var(--orange); }
+
+  /* form */
+  .contact-form {
+    background: var(--white);
+    border-radius: 16px; padding: 36px;
+    border: 1px solid #ede7de;
+    box-shadow: var(--shadow);
+  }
+  .contact-form h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .contact-form p { font-size: .88rem; color: var(--gray); margin-bottom: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label { font-size: .82rem; font-weight: 600; color: var(--navy); }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 12px 14px;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem; color: var(--navy);
+    background: var(--cream); transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,98,26,.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; padding: 15px;
+    background: var(--orange); color: #fff;
+    border: none; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(232,98,26,.3);
+    transition: background .2s, transform .2s, box-shadow .2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(232,98,26,.4); }
+  .form-submit.success { background: #16a34a !important; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--navy); color: rgba(255,255,255,.7); padding: 64px 0 0; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 40px; padding-bottom: 48px;
+  }
+  .footer-brand p { font-size: .88rem; line-height: 1.7; margin: 16px 0 24px; max-width: 280px; }
+  .footer-logo { height: 48px; width: auto; filter: brightness(0) invert(1); opacity: .9; }
+  .social-row { display: flex; gap: 10px; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,.7); transition: background .2s, color .2s;
+  }
+  .social-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .footer-col h4 { font-weight: 700; font-size: .88rem; color: #fff; letter-spacing: .3px; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { font-size: .88rem; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: .88rem; margin-bottom: 12px; }
+  .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; color: var(--orange); }
+  .footer-contact-item a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+    font-size: .82rem; flex-wrap: wrap; gap: 12px;
+  }
+  .areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .areas-grid a { font-size: .85rem; color: rgba(255,255,255,.6); transition: color .2s; }
+  .areas-grid a:hover { color: var(--gold); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .offer-card { max-width: 480px; }
+    .about-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .steps::before { display: none; }
+  }
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+    .header { position: sticky; }
+    section { padding: 60px 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .about-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .top-bar-pill { display: none; }
+  }
+  @media (max-width: 480px) {
+    .about-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <div class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0z"/></svg>
+        <a href="tel:5105188470">+1 510-518-8470</a>
+      </div>
+      <div class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:heatingandairexpertsllc@gmail.com">heatingandairexpertsllc@gmail.com</a>
+      </div>
+      <div class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        <span>Available 24/7 — Emergency Service</span>
+      </div>
+    </div>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank" class="top-bar-pill">Free Estimate →</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="main-header">
+  <div class="header-inner">
+    <a href="https://heatingandairexpertsllc.com/" target="_blank" class="logo">
+      <img src="https://heatingandairexpertsllc.com/wp-content/uploads/2025/05/heating-logo-e1734982734166.webp" alt="Heating and Air Experts Logo" />
+    </a>
+    <nav>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">Home</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">About</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">Services</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">Reviews</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">Areas</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank">Blog</a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="header-cta">Get a Free Quote</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="https://heatingandairexpertsllc.com/" target="_blank">Home</a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank">About Us</a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank">Services</a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank">Reviews</a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank">Contact Us</a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank" class="header-cta" style="text-align:center;margin-top:8px;">Get a Free Quote</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span> Diamond Certified · Bay Area's Trusted HVAC Experts</div>
+      <h1>Expert Heating &amp; Cooling Services<br/><em>You Can Rely On</em></h1>
+      <p class="hero-sub">From quick repairs to full system replacements — Heating and Air Experts delivers reliable, energy-efficient HVAC solutions for homes and businesses across the Bay Area, with upfront pricing and 24/7 availability.</p>
+      <div class="hero-btns">
+        <a href="tel:5105188470" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0z"/></svg>
+          Call Now: 510-518-8470
+        </a>
+        <a href="https://heatingandairexpertsllc.com/" target="_blank" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Online
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <span>345+ Thumbtack Reviews</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+          <span>BBB Accredited</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          <span>15+ Years of Experience</span>
+        </div>
+      </div>
+    </div>
+    <div class="offer-card reveal">
+      <div class="offer-card-tag">🔥 Limited Offer</div>
+      <h3>Free System Inspection + $50 Off Any Service</h3>
+      <p>Schedule today and receive a comprehensive HVAC inspection at no charge, plus $50 off your first service call.</p>
+      <ul class="offer-bullets">
+        <li>
+          <span class="offer-check">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+          </span>
+          Full System Diagnosis
+        </li>
+        <li>
+          <span class="offer-check">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+          </span>
+          Upfront, Honest Pricing
+        </li>
+        <li>
+          <span class="offer-check">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+          </span>
+          Same-Day Availability
+        </li>
+        <li>
+          <span class="offer-check">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+          </span>
+          100% Satisfaction Guaranteed
+        </li>
+      </ul>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="offer-cta">Claim This Offer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="about-strip">
+  <div class="about-strip-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Years of HVAC Excellence</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num">345+</div>
+      <div class="stat-label">Verified 5-Star Reviews</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Emergency Service Available</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction Guaranteed</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Full-Service HVAC Solutions<br/>for Every Season</h2>
+      <p class="section-sub">Whether you're upgrading an outdated system or need same-day emergency repairs, our certified technicians are ready to help.</p>
+    </div>
+    <div class="services-grid">
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="service-card reveal">
+        <div class="service-img">
+          <img src="https://heatingandairexpertsllc.com/wp-content/uploads/2025/06/01.png" alt="Heating Services" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3>Heating Services</h3>
+          <p>Expert furnace installation, repair, and maintenance to keep your home warm and energy-efficient through every winter.</p>
+          <span class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="service-card reveal reveal-delay-1">
+        <div class="service-img">
+          <img src="https://heatingandairexpertsllc.com/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2025-06-27-at-02.32.41_53196c39-e1750976675445-rg9n9h9a7c3s1mzz1ogs8ugqsxtee0ltg9bhovhfm8.jpg" alt="Cooling Services" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23,7 13,7 13,3"/><polyline points="1,17 11,17 11,21"/><path d="M12 17H3a2 2 0 01-2-2v-4a2 2 0 012-2h9"/><path d="M12 7h9a2 2 0 012 2v4a2 2 0 01-2 2h-9"/></svg>
+          </div>
+          <h3>Cooling Services</h3>
+          <p>AC installation, repair, and seasonal tune-ups ensuring your cooling system runs at peak performance all summer long.</p>
+          <span class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="service-card reveal reveal-delay-2">
+        <div class="service-img">
+          <img src="https://heatingandairexpertsllc.com/wp-content/uploads/2025/06/Tips-For-Finding-the-Best-Air-Duct-Cleaning-Service.webp" alt="Air Duct Cleaning" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          </div>
+          <h3>Air Duct Cleaning</h3>
+          <p>Professional duct cleaning removes allergens, dust, and contaminants — improving air quality and system efficiency throughout your property.</p>
+          <span class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="service-card reveal reveal-delay-3">
+        <div class="service-img">
+          <img src="https://heatingandairexpertsllc.com/wp-content/uploads/2025/06/01-5-1.png" alt="Thermostat Installation" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M12 6v6"/></svg>
+          </div>
+          <h3>Thermostat Installation</h3>
+          <p>Smart and programmable thermostat upgrades for intelligent climate control, energy savings, and whole-home comfort management.</p>
+          <span class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:40px;" class="reveal">
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="btn-primary">
+        View All Services
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title" style="color:#fff;">The Heating & Air Experts<br/>Difference</h2>
+      <p class="section-sub">We don't just fix HVAC systems — we build lasting relationships rooted in trust, transparency, and genuine care for your comfort.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Diamond Certified</h4>
+        <p>We hold the coveted Diamond Certified award — the highest standard in the HVAC industry, earned through rigorous quality and customer satisfaction standards.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <h4>24/7 Emergency Service</h4>
+        <p>HVAC emergencies don't wait for business hours. Our team is on-call around the clock to get your system running when you need it most.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h4>Upfront, Honest Pricing</h4>
+        <p>No hidden fees. No surprise bills. We provide clear, detailed estimates before any work begins — so you always know exactly what you're paying for.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h4>Certified Technicians</h4>
+        <p>Our team of highly trained, licensed HVAC technicians brings expertise and professionalism to every job — residential or commercial.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+        </div>
+        <h4>100% Satisfaction Guarantee</h4>
+        <p>We stand behind every repair and installation. If you're not completely satisfied, we'll make it right — no questions asked.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h4>Energy-Efficient Solutions</h4>
+        <p>We help you choose and install systems that lower energy consumption, reduce your bills, and minimize your environmental footprint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center; max-width:600px; margin: 0 auto 52px;">
+      <div class="section-label">Real Reviews</div>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-sub" style="margin: 0 auto;">Hundreds of Bay Area homeowners and businesses trust us for their HVAC needs. Here's what a few of them have to say.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <div class="review-quote">&ldquo;</div>
+        <p class="review-text">Baker was amazing! Very professional and did a great job explaining several different scenarios to fix my A/C. Can't thank him enough for making it happen and being honest and respectful. Highly recommend their services.</p>
+        <div class="review-author">
+          <div class="review-avatar">SH</div>
+          <div>
+            <div class="review-name">Scott Hill</div>
+            <div class="review-platform">Trustpilot · June 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <div class="review-quote">&ldquo;</div>
+        <p class="review-text">Thank you Abe from Heating and Air Experts! You were professional and thorough and now my heater works great! Thank you for being so accommodating and for your knowledge operating the Nest thermostat as well. I will definitely use this company again!</p>
+        <div class="review-author">
+          <div class="review-avatar">TB</div>
+          <div>
+            <div class="review-name">Tim Baker</div>
+            <div class="review-platform">Trustpilot · October 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <div class="review-quote">&ldquo;</div>
+        <p class="review-text">Regular A/C system maintenance by Heating and Air Experts keeps my home cool and energy efficient. Their team is always on time, thorough, and genuinely helpful. I wouldn't trust anyone else with my HVAC system.</p>
+        <div class="review-author">
+          <div class="review-avatar">FG</div>
+          <div>
+            <div class="review-name">Fredric Gannon</div>
+            <div class="review-platform">Trustpilot · December 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="reviews-trust-row reveal">
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="trust-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8621a" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        <div class="trust-badge-score">5.0</div>
+        <div class="trust-badge-label">Thumbtack Rating</div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="trust-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8621a" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="trust-badge-score">Diamond</div>
+        <div class="trust-badge-label">Certified Award</div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="trust-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8621a" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="trust-badge-score">BBB</div>
+        <div class="trust-badge-label">Accredited Business</div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="trust-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8621a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        <div class="trust-badge-score">4.0+</div>
+        <div class="trust-badge-label">Trustpilot Score</div>
+      </a>
+      <a href="https://heatingandairexpertsllc.com/" target="_blank" class="trust-badge">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8621a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="trust-badge-score">Yelp</div>
+        <div class="trust-badge-label">Top Rated Local</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center; max-width:600px; margin: 0 auto 60px;">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title">Simple. Transparent.<br/>Stress-Free Service.</h2>
+      <p class="section-sub" style="margin: 0 auto;">We've streamlined our process so getting comfortable in your home is fast and hassle-free.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>Contact Us</h4>
+        <p>Call, email, or book online anytime. Our friendly team will schedule a visit at your earliest convenience.</p>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <h4>Free Diagnosis</h4>
+        <p>Our certified technician performs a thorough inspection of your system and identifies the issue precisely.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <h4>Honest Quote</h4>
+        <p>You receive a clear, upfront estimate with no hidden costs before we start any repair or installation.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <h4>Expert Service</h4>
+        <p>We complete the job with precision, clean up after ourselves, and ensure everything works perfectly.</p>
+      </div>
+      <div class="step reveal reveal-delay-4">
+        <div class="step-num">05</div>
+        <h4>Guaranteed Comfort</h4>
+        <p>We follow up to confirm your satisfaction and back our work with a 100% satisfaction guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Ready for Year-Round Comfort?<br/>We're Available 24/7.</h2>
+  <p>Whether it's a heating emergency or a routine tune-up — our team is standing by to help you right now.</p>
+  <div class="cta-banner-btns">
+    <a href="tel:5105188470" class="btn-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0z"/></svg>
+      Call 510-518-8470
+    </a>
+    <a href="https://heatingandairexpertsllc.com/" target="_blank" class="btn-outline-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule Online
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="container">
+    <div class="section-header reveal" style="max-width:560px;">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Request Your Free Quote Today</h2>
+      <p class="section-sub">Fill out the form below or give us a call. We respond to all inquiries within 1 business hour.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <a href="tel:5105188470" class="contact-card reveal">
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0z"/></svg>
+          </div>
+          <div>
+            <h4>Phone</h4>
+            <p>+1 510-518-8470</p>
+            <p style="color:#e8621a; font-size:.8rem; margin-top:4px;">Available 24/7</p>
+          </div>
+        </a>
+        <a href="mailto:heatingandairexpertsllc@gmail.com" class="contact-card reveal reveal-delay-1">
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p>heatingandairexpertsllc@gmail.com</p>
+            <p style="color:#e8621a; font-size:.8rem; margin-top:4px;">Reply within 1 hour</p>
+          </div>
+        </a>
+        <a href="https://heatingandairexpertsllc.com/" target="_blank" class="contact-card reveal reveal-delay-2">
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Service Area</h4>
+            <p>San Francisco, San Jose, Fremont, Oakland, Walnut Creek, Danville, San Mateo &amp; surrounding Bay Area cities.</p>
+          </div>
+        </a>
+        <a href="https://heatingandairexpertsllc.com/" target="_blank" class="contact-card reveal reveal-delay-3">
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <div>
+            <h4>Business Hours</h4>
+            <p>Monday – Sunday: 24/7<br/>Emergency services always available</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form reveal">
+        <h3>Get Your Free Quote</h3>
+        <p>We'll get back to you within 1 hour with pricing and availability.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="John" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(510) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service">
+            <option value="">Select a Service...</option>
+            <option>Heating Repair</option>
+            <option>Heating Installation</option>
+            <option>Cooling / AC Repair</option>
+            <option>Cooling / AC Installation</option>
+            <option>Air Duct Cleaning</option>
+            <option>Thermostat Installation</option>
+            <option>Maintenance / Tune-Up</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Issue</label>
+          <textarea id="message" placeholder="Describe your HVAC issue or what you need..."></textarea>
+        </div>
+        <button class="form-submit" id="form-submit" onclick="submitForm(this)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg>
+          Send My Free Quote Request
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="https://heatingandairexpertsllc.com/" target="_blank">
+          <img class="footer-logo" src="https://heatingandairexpertsllc.com/wp-content/uploads/2025/05/heating-logo-e1734982734166.webp" alt="Heating and Air Experts" />
+        </a>
+        <p>Delivering year-round comfort with 15+ years of HVAC expertise. Diamond Certified, BBB Accredited, and committed to your complete satisfaction.</p>
+        <div class="social-row">
+          <a href="https://www.yelp.com/biz/heating-and-air-experts-fremont" target="_blank" class="social-btn" aria-label="Yelp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.57a1.15 1.15 0 00-.97-.44l-6.5.76a1.09 1.09 0 00-.9.75 1.11 1.11 0 00.39 1.19l5.21 3.77a1.14 1.14 0 001.35.02 7.89 7.89 0 001.65-4.39 1.15 1.15 0 00-.23-.66zM11 13.5a1.08 1.08 0 00-1.08-.32L3.6 15.35a1.09 1.09 0 00-.72.86 7.87 7.87 0 002.72 4.04 1.1 1.1 0 001.32-.13l4.44-4.93A1.1 1.1 0 0011 13.5zm1.5-2.8l6.44-1.76a1.1 1.1 0 00.77-.97A7.88 7.88 0 0016.34 4a1.1 1.1 0 00-1.3.25L11.1 9.58a1.11 1.11 0 00-.14 1.17 1.08 1.08 0 001.54.62zM9.5 11.5a1.1 1.1 0 00.1-1.19L6.24 4.4a1.1 1.1 0 00-1.29-.44 7.87 7.87 0 00-2.8 4 1.1 1.1 0 00.67.98l6.43 2.05A1.09 1.09 0 009.5 11.5zm.87 3.93l-4.21 5.09a1.1 1.1 0 00.08 1.36 7.9 7.9 0 004.35 1.62 1.1 1.1 0 001.07-.87l1.19-6.55a1.1 1.1 0 00-.58-1.14 1.09 1.09 0 00-1.27.2z"/></svg>
+          </a>
+          <a href="https://g.co/kgs/23dZU13" target="_blank" class="social-btn" aria-label="Google Maps">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </a>
+          <a href="https://www.thumbtack.com/ca/fremont/furnace-repair/heating-air-experts/service/500279087155519496" target="_blank" class="social-btn" aria-label="Thumbtack">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 4l6 2.7V11c0 3.8-2.6 7.4-6 8.9-3.4-1.5-6-5.1-6-8.9V7.7L12 5z"/></svg>
+          </a>
+          <a href="https://www.trustpilot.com/review/heatingandairexpert.com" target="_blank" class="social-btn" aria-label="Trustpilot">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Home</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">About Us</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Services</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Reviews</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Gallery</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Blog</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Heating</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Cooling</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Air Duct Cleaning</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Thermostat Install</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">HVAC Maintenance</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Emergency Repair</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Commercial HVAC</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Areas We Serve</h4>
+        <div class="areas-grid" style="margin-bottom:20px;">
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">San Jose, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">San Francisco, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Fremont, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Oakland, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Walnut Creek, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Danville, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">San Mateo, CA</a>
+          <a href="https://heatingandairexpertsllc.com/" target="_blank">Bay Area, CA</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0z"/></svg>
+          <a href="tel:5105188470">+1 510-518-8470</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:heatingandairexpertsllc@gmail.com">heatingandairexpertsllc@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 <a href="https://heatingandairexpertsllc.com/" target="_blank" style="color:rgba(255,255,255,.7);">Heating and Air Experts LLC</a>. All Rights Reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="https://heatingandairexpertsllc.com/" target="_blank">Privacy Policy</a>
+        <a href="https://heatingandairexpertsllc.com/" target="_blank">Terms of Service</a>
+        <a href="https://heatingandairexpertsllc.com/" target="_blank">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm(btn) {
+    const fname = document.getElementById('fname').value;
+    const phone = document.getElementById('phone').value;
+    if (!fname || !phone) {
+      btn.style.animation = 'shake .3s ease';
+      setTimeout(() => btn.style.animation = '', 400);
+      return;
+    }
+    btn.classList.add('success');
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg> Request Sent! We'll Contact You Shortly.`;
+    btn.disabled = true;
+  }
+</script>
+
+<style>
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 60%{transform:translateX(6px)}
+  }
+</style>
+
+</body>
+</html>
